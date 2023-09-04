@@ -1,6 +1,6 @@
 {
-    "name": "samphive",
-    "short_name": "samphive",
+    "name": "apicallprovider",
+    "short_name": "apicallprovider",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

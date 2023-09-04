@@ -1,14 +1,13 @@
+import 'package:apicallprovider/provider/getdatapro.dart';
+import 'package:apicallprovider/view/home.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:samphive/model/person.dart';
-import 'package:samphive/screens/add.dart';
-import 'box.dart';
+import 'package:provider/provider.dart';
 
-void main() async{
-  await Hive.initFlutter();
-  Hive.registerAdapter(PersonAdapter());
-  boxvalues = await Hive.openBox<Person>('sample');
-  runApp(const MyApp());
+void main() {
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => GetdetailsProvider(),
+    child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,15 +17,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromRGBO(251, 250, 250, 1)),
         useMaterial3: true,
       ),
-      home: const Sample(),
+      home: const Home(),
     );
   }
 }
-
 
